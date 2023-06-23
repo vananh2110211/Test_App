@@ -15,12 +15,12 @@ class page_detail extends StatelessWidget {
         title: Text(product['name']),
         backgroundColor: Colors.white,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          // IconButton(
+          //   icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
+          //   onPressed: () {
+          //     Navigator.pop(context);
+          //   },
+          // ),
           Spacer(),
           IconButton(
             icon: Icon(Icons.shopping_cart, size: 20, color: Colors.black),
@@ -225,8 +225,9 @@ class page_detail extends StatelessWidget {
                       Text(
                         '\$' +
                             (product['price'] -
-                                    (product['saleoff'] * product['price']) /
-                                        100)
+                                    (product['discount'] *
+                                        product['price'] /
+                                        100))
                                 .toString(),
                         style: TextStyle(
                             fontSize: 22,
@@ -272,7 +273,7 @@ class page_detail extends StatelessWidget {
         Container(
             color: Colors.white,
             child: Text(
-              "Giảm " + product['saleoff'].toString() + "%",
+              "Giảm " + product['discount'].toString() + "%",
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -326,7 +327,7 @@ class page_detail extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('\$' + product['price'],
+                          Text('\$' + product['price'].toString(),
                               style: TextStyle(
                                   fontSize: 22,
                                   color: Colors.blue,

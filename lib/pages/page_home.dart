@@ -271,9 +271,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             '\$' +
                                 (filteredProducts[index]['price'] -
                                         (filteredProducts[index]['price'] *
-                                                filteredProducts[index]
-                                                    ['saleoff']) /
-                                            100)
+                                            filteredProducts[index]
+                                                ['discount'] /
+                                            100))
                                     .toString(),
                             style: TextStyle(
                               fontSize: 20,
