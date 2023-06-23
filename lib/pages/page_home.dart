@@ -7,7 +7,6 @@ import 'package:test_application_1/pages/page_detail.dart';
 import 'package:test_application_1/libraries/draggable_home.dart';
 import 'package:test_application_1/pages/page_intro.dart';
 import 'package:test_application_1/pages/page_search.dart';
-import 'package:readmore/readmore.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -114,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 42,
               color: Colors.black87,
             )),
-        P_View(),
+        View(),
       ],
       fullyStretchable: true,
       //expandedBody: const CameraPreview(),
@@ -217,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  SizedBox P_View() {
+  SizedBox View() {
     return SizedBox(
       height: 600,
       child: GridView.builder(
@@ -265,12 +264,40 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    Text('\$' + filteredProducts[index]['price'],
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
-                          )),
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            Text('\$' + filteredProducts[index]['price'],
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                              )
+                            ),
+                            Text('\$' + filteredProducts[index]['oldprice'],
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.blue,
+                                decoration: TextDecoration.lineThrough,
+                              )
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        Container(
+                          color: Colors.white,
+                          child: Text(
+                            'Giảm' + filteredProducts[index]['saleoff'],
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: const Color.fromARGB(137, 252, 6, 6)),
+                          )
+                        ),
+                      ],
+                    ),
                     Expanded(
                       child: Text(
                         filteredProducts[index]['description'],

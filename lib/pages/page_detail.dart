@@ -5,7 +5,7 @@ import 'package:readmore/readmore.dart';
 import "page_home.dart";
 
 class page_detail extends StatelessWidget {
-  final dynamic product;
+  final dynamic product; 
   const page_detail({Key? key, required this.product}) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class page_detail extends StatelessWidget {
         title: Text(product['name']),
         backgroundColor: Colors.white,
         actions:<Widget> [
-            IconButton(
+            IconButton( 
               icon: Icon(Icons.arrow_back_ios, size: 32, color: Colors.black),
               onPressed: () {
                 Navigator.pop(context);
@@ -70,6 +70,8 @@ class page_detail extends StatelessWidget {
                 ),
                 PopupMenuItem(
                   value: 2,
+                  onTap: (){
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -235,6 +237,16 @@ class page_detail extends StatelessWidget {
                             color: Colors.blue,
                             fontWeight: FontWeight.bold),
                       ),
+                      SizedBox(width: 15),
+                      Text(
+                        '\$' + product['oldprice'],
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromARGB(255, 8, 42, 69),
+                          decoration: TextDecoration.lineThrough,
+                        )
+                      ),
                     ],
                   ),
                   SizedBox(height: 15),
@@ -266,7 +278,7 @@ class page_detail extends StatelessWidget {
         Container(
             color: Colors.white,
             child: Text(
-              "Giảm 38%",
+              'Giảm' + product['saleoff'],
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -301,49 +313,48 @@ class page_detail extends StatelessWidget {
                 width: 100,
               ),
             ),
-            Spacer(),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Bonus",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      SizedBox(height: 15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '\$'+ product['price'],
-                            style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold)
-                          ),
-                          SizedBox(width: 15),
-                          Text(
-                            'OldPrice',
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 15),
-                      Text(
-                        "*Áp dụng đến hết ngày 11/12/2023",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      SizedBox(height: 15),
-                    ],
-                  )),
+            SizedBox(width: 15),
+            //Spacer(),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Bonus",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'NewPrice',
+                            ),
+                            SizedBox(width: 15),
+                            Text(
+                              'OldPrice',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                        Text(
+                          "*Áp dụng đến hết ngày 11/12/2023",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 15),
+                      ],
+                    )),
+              ),
             ),
           ]),
         ],
@@ -384,36 +395,38 @@ class page_detail extends StatelessWidget {
               )
             ],
           ),
-          Spacer(),
-          Column(children: [
-            ElevatedButton(
-                //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-                child: Text(
-                  "Xem gian hàng",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )),
-            SizedBox(height: 10),
-            ElevatedButton(
-                //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-                child: Text(
-                  "Xem thông tin",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ))
-          ])
+         // Spacer(),
+          Expanded(
+            child: Column(children: [
+              ElevatedButton(
+                  //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  child: Text(
+                    "Xem gian hàng",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  )),
+              SizedBox(height: 10),
+              ElevatedButton(
+                  //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  child: Text(
+                    "Xem thông tin",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ))
+            ]),
+          )
         ],
       ),
     );
@@ -580,7 +593,7 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 120, 207, 247)),
+              backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 111, 205, 249)),
             ),
             child: Center(
               child: Icon(
@@ -593,7 +606,7 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 69, 166, 245)),
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 83, 173, 247)),
             ),
             child: Center(
               child: Icon(
@@ -606,7 +619,7 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 21, 146, 249)),
+              backgroundColor: MaterialStateProperty.all(Colors.blue),
             ),
             child: Center(
               child: Text("Mua ngay",
@@ -635,5 +648,6 @@ class page_detail extends StatelessWidget {
       ),
     );
   }
-  
+
+
 }
