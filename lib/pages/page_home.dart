@@ -7,7 +7,7 @@ import 'package:test_application_1/pages/page_detail.dart';
 import 'package:test_application_1/libraries/draggable_home.dart';
 import 'package:test_application_1/pages/page_intro.dart';
 import 'package:test_application_1/pages/page_search.dart';
-import 'package:readmore/readmore.dart';
+//import 'package:readmore/readmore.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -207,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
                   autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  viewportFraction: 0.8,
+                  viewportFraction: 1,
                 ),
               ),
             ],
@@ -265,12 +265,31 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    Text('\$' + filteredProducts[index]['price'],
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
-                          )),
+                    Row(
+                      children: [
+                        Text(
+                            '\$' +
+                                (filteredProducts[index]['price'] -
+                                        (filteredProducts[index]['price'] *
+                                                filteredProducts[index]
+                                                    ['saleoff']) /
+                                            100)
+                                    .toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            )),
+                        SizedBox(width: 15),
+                        Text('\$' + filteredProducts[index]['price'].toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.lineThrough,
+                            )),
+                      ],
+                    ),
                     Expanded(
                       child: Text(
                         filteredProducts[index]['description'],
@@ -280,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.black,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines:3,
+                        maxLines: 3,
                       ),
                     ),
                     //Expanded(child: Text(filteredProducts[index]['description'])),

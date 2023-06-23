@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:test_application_1/library/salomon_bottom_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
-import "page_home.dart";
+//import "page_home.dart";
 
 class page_detail extends StatelessWidget {
   final dynamic product;
@@ -13,97 +13,99 @@ class page_detail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(product['name']),
-        backgroundColor: Colors.white,
-        actions:<Widget> [
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            Spacer(),
-            IconButton(
-              icon: Icon(Icons.shopping_cart, size: 20, color: Colors.black),
-              onPressed: () {},
-            ),
-            PopupMenuButton(
-              icon: Icon(Icons.more_vert, size: 20, color: Colors.black),
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  value: 1,
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Icon(Icons.share, color: Colors.black, size: 18),
-                        SizedBox(width: 5),
-                        Text(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.arrow_back_ios_new,
+                size: 20, color: Color.fromARGB(255, 36, 36, 36)),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          Spacer(),
+          IconButton(
+            icon: Icon(Icons.shopping_cart, size: 20, color: Colors.black),
+            onPressed: () {},
+          ),
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert, size: 20, color: Colors.black),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 1,
+                child: Container(
+                  child: Row(
+                    children: [
+                      Icon(Icons.share, color: Colors.black, size: 18),
+                      SizedBox(width: 5),
+                      Text(
                         "Chia sẻ sản phẩm",
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                PopupMenuItem(
-                  value: 2,
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Icon(Icons.autorenew, color: Colors.black, size: 18),
-                        SizedBox(width: 5),
-                        Text(
+              ),
+              PopupMenuItem(
+                value: 2,
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  child: Row(
+                    children: [
+                      Icon(Icons.autorenew, color: Colors.black, size: 18),
+                      SizedBox(width: 5),
+                      Text(
                         "Quay về trang chủ",
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                PopupMenuItem(
-                  value: 2,
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Icon(Icons.thumb_down, color: Colors.black, size: 18),
-                        SizedBox(width: 5),
-                        Text(
+              ),
+              PopupMenuItem(
+                value: 2,
+                child: Container(
+                  child: Row(
+                    children: [
+                      Icon(Icons.thumb_down, color: Colors.black, size: 18),
+                      SizedBox(width: 5),
+                      Text(
                         "Báo cáo sản phẩm",
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                PopupMenuItem(
-                  value: 2,
-                  child: Container(
-                    child: Row(
-                      children: [
-                        const Icon(Icons.contact_support, color: Colors.black, size: 18),
-                        SizedBox(width: 5),
-                        const Text(
+              ),
+              PopupMenuItem(
+                value: 2,
+                child: Container(
+                  child: Row(
+                    children: [
+                      const Icon(Icons.contact_support,
+                          color: Colors.black, size: 18),
+                      SizedBox(width: 5),
+                      const Text(
                         "Bạn cần hỗ trợ",
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
+              ),
             ],
           )
         ],
@@ -155,12 +157,24 @@ class page_detail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$' + product['price'],
+                        '\$' +
+                            (product['price'] -
+                                    (product['saleoff'] * product['price']) /
+                                        100)
+                                .toString(),
                         style: TextStyle(
                             fontSize: 22,
                             color: Colors.blue,
                             fontWeight: FontWeight.bold),
                       ),
+                      SizedBox(width: 15),
+                      Text('\$' + product['price'].toString(),
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.lineThrough,
+                          ))
                     ],
                   ),
                   SizedBox(height: 15),
@@ -192,7 +206,7 @@ class page_detail extends StatelessWidget {
         Container(
             color: Colors.white,
             child: Text(
-              "Giảm 38%",
+              "Giảm " + product['saleoff'].toString() + "%",
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -372,7 +386,7 @@ class page_detail extends StatelessWidget {
               trimExpandedText: 'Show less',
               moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
-            Icon(Icons.keyboard_arrow_down, size: 28),
+            //Icon(Icons.keyboard_arrow_down, size: 28),
           ],
         ));
   }
@@ -435,28 +449,29 @@ class page_detail extends StatelessWidget {
                           onPressed: () {},
                         ),
                         PopupMenuButton(
-                          icon: Icon(Icons.more_vert, size: 20, color: Colors.black),
-                          itemBuilder: (context) => [
-                            PopupMenuItem(
-                              value: 1,
-                              child: Container(
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.message, color: Colors.black, size: 18),
-                                    SizedBox(width: 5),
-                                    Text(
-                                    "Báo cáo bình luận xấu",
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
+                            icon: Icon(Icons.more_vert,
+                                size: 20, color: Colors.black),
+                            itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                    value: 1,
+                                    child: Container(
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.message,
+                                              color: Colors.black, size: 18),
+                                          SizedBox(width: 5),
+                                          Text(
+                                            "Báo cáo bình luận xấu",
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ]
-                        ),
+                                  ),
+                                ]),
                       ],
                     ),
                     SizedBox(height: 3),
@@ -557,5 +572,4 @@ class page_detail extends StatelessWidget {
       ),
     );
   }
-  
 }
