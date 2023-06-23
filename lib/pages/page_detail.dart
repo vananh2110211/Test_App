@@ -13,11 +13,10 @@ class page_detail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(product['name']),
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.arrow_back_ios_new,
-                size: 20, color: Color.fromARGB(255, 36, 36, 36)),
+            icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -118,6 +117,7 @@ class page_detail extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           SizedBox(height: 10),
+          p_options(),
           p_detail(),
           p_deals(),
           p_seller(),
@@ -126,6 +126,72 @@ class page_detail extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: p_bottombar(),
+    );
+  }
+
+  Container p_options() {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(left: 10, bottom: 10),
+              child: Text(
+                "Phân loại sản phẩm",
+                style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              )),
+          Row(children: [
+            Expanded(
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.all(0.5),
+                  child: Row(
+                    children: [
+                      Image.network(
+                        product['image'],
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 12),
+                      Image.network(
+                        product['image'],
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 12),
+                      Image.network(
+                        product['image'],
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 12),
+                      Image.network(
+                        product['image'],
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 12),
+                      Image.network(
+                        product['image'],
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(width: 12),
+                    ],
+                  )),
+            ),
+            SizedBox(width: 30, child: Icon(Icons.arrow_forward_ios, size: 28)),
+          ]),
+        ],
+      ),
     );
   }
 
@@ -260,9 +326,11 @@ class page_detail extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'NewPrice',
-                          ),
+                          Text('\$' + product['price'],
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold)),
                           SizedBox(width: 15),
                           Text(
                             'OldPrice',
@@ -384,7 +452,10 @@ class page_detail extends StatelessWidget {
               trimMode: TrimMode.Line,
               trimCollapsedText: 'Show more',
               trimExpandedText: 'Show less',
-              moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              moreStyle: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
             ),
             //Icon(Icons.keyboard_arrow_down, size: 28),
           ],
@@ -499,7 +570,7 @@ class page_detail extends StatelessWidget {
 
   Container p_bottombar() {
     return Container(
-      height: 65,
+      height: 50,
       margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
       decoration: BoxDecoration(
           color: Color.fromARGB(255, 238, 238, 238),
@@ -517,12 +588,13 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
+              backgroundColor: MaterialStateProperty.all(
+                  const Color.fromARGB(255, 120, 207, 247)),
             ),
             child: Center(
               child: Icon(
                 Icons.share,
-                color: Colors.white,
+                color: Colors.black,
                 size: 32,
               ),
             ),
@@ -530,12 +602,13 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.blue),
+              backgroundColor: MaterialStateProperty.all(
+                  const Color.fromARGB(255, 69, 166, 245)),
             ),
             child: Center(
               child: Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
+                Icons.add_shopping_cart,
+                color: Colors.black,
                 size: 32,
               ),
             ),
@@ -543,7 +616,8 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.blue),
+              backgroundColor: MaterialStateProperty.all(
+                  const Color.fromARGB(255, 21, 146, 249)),
             ),
             child: Center(
               child: Text("Mua ngay",

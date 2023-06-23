@@ -18,8 +18,7 @@
     "comment": "Camera chụp hình đẹp",
     "company": "Samsung Electronics Co., Ltd",
     "companyimage" : "https://danviet.mediacdn.vn/296231569849192448/2023/1/31/7-1675135082139581950593.jpg",
-    "rating": 3,
-    "saleoff" : 10
+    "rating": 3
   },
   {
     "name": "Google Pixel 5",
@@ -32,5 +31,25 @@
     "rating": 4,
     "saleoff": 11
 
+  },
+  {
+    "name": "Vsmart Aris Pro",
+    "description": "Aris Pro has a premium and solid monolithic design. The machine's bezel and front and back glass form a seamless whole with few contiguous points. I like the blue color on Aris Pro, it's not too bright and vibrant, combined with the frosted glass back is even more beautiful. Prominent on the back is a cluster of 4 64MP cameras with AI, the device retains the 3.5mm port and fingerprint sensor on the power button, instead of on the screen like the Live I'm using. The screen with the camera placed below is what we are most interested in on the Aris Pro. This screen is 64 with Full HD + for good quality. Right at the top center, you will see a square and hollow part compared to the rest of the screen, that is the front camera position. With the Oppo prototype I used to have on hand, it was less pitted, although it is easy to see with the naked eye. If the screen brightness is higher, we will see the most obvious difference, while if the brightness is low and Vsmart knows this, they add a black border option for the status bar in the settings to help hide this camera deeper (if you leave the status bar black, it will be black). not found).",
+    "image": "https://cdn.tgdd.vn/Products/Images/42/228531/vsmart-aris-pro-green-600jpg-600x600.jpg",
+    "price": "599",
+    "comment": "Máy đẹp, camera ẩn dưới màn hình",
+    "company": "Vin Smart",
+    "companyimage": "https://cdn.tgdd.vn/hoi-dap/1304027/dien-thoai-thong-minh-vsmart-cua-nuoc-nao-san-xuat-dung-co1.jpg",
+    "rating": 3.5
+  },
+  {
+    "name": "Xiaomi 13",
+    "description": "The Xiaomi 13 has been introduced in four different storage configurations in its home country China: 8/128, 8/256, 12/256, and 12/512 GB. As expected, the global model does not have that many choices, arriving in only one 8/256 GB model. In terms of colors, Xiaomi gives international customers a choice between black, white, and Flora Green shades, of which the latter is what our review unit came in. The Xiaomi 13 offers a good balance between specs at an acceptable price. Although you always have to keep an eye on the handset considering how slippery it is, the 6.36-inch AMOLED display (120 Hz/1,900 nits peak brightness), 50 MP Leica triple camera, as well as the 4,500 mAh battery, and the Snapdragon 8 Gen 2 all make an extremely convincing impression. However, I would like to point out the strange behavior of Qualcomm's octa-core processor at this point as I dive into it deeper in the Performance segment. What is worse is the fact that the Xiaomi 13 comes off on the back like an eel. In other words, despite the clearly protruding, square (with rounded corners) camera array, the IP68-certified Android smartphone slides all too easily on any kind of inclined surface. In front, 2,400 x 1,080 pixels are spread over 6.36 inches, offering us a high-contrast and crisp AMOLED display. Although Xiaomi has dispensed with the energy-saving LTPO feature on the base model, unlike the Xiaomi 13 Pro (which switches between 1 to 120 Hz), at the end of the day you can rely on Samsung's E6 panel.",
+    "image": "https://cdn.dxomark.com/wp-content/uploads/medias/post-139298/Xiaomi-13-featured-image-packshot-review-Recovered.jpg",
+    "price": "799",
+    "comment": "Thiết kế nhỏ gọn tiện dụng",
+    "company": "Xiaomi",
+    "companyimage": "https://bachlongmobile.com/bnews/wp-content/uploads/2021/05/Xiaomi-3.jpg",
+    "rating": 3.5
   }
 ]
