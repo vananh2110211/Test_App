@@ -70,6 +70,7 @@ class page_detail extends StatelessWidget {
               ),
               PopupMenuItem(
                 value: 2,
+                onTap: () {},
                 child: Container(
                   child: Row(
                     children: [
@@ -223,25 +224,20 @@ class page_detail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$' +
-                            (product['price'] -
-                                    (product['discount'] *
-                                        product['price'] /
-                                        100))
-                                .toString(),
+                        '\$' + product['price'].toString(),
                         style: TextStyle(
                             fontSize: 22,
                             color: Colors.blue,
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(width: 15),
-                      Text('\$' + product['price'].toString(),
+                      Text('\$' + product['oldprice'].toString(),
                           style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.red,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Color.fromARGB(255, 8, 42, 69),
                             decoration: TextDecoration.lineThrough,
-                          ))
+                          )),
                     ],
                   ),
                   SizedBox(height: 15),
@@ -261,8 +257,10 @@ class page_detail extends StatelessWidget {
                   Row(
                     children: [
                       p_rating(),
+                      SizedBox(width: 5),
+                      Text(product['rating'].toString()),
                       SizedBox(width: 15),
-                      Text('Đã bán: 1')
+                      Text('Đã bán: ' + product['sold'].toString())
                     ],
                   ),
                   SizedBox(height: 15),
@@ -273,7 +271,10 @@ class page_detail extends StatelessWidget {
         Container(
             color: Colors.white,
             child: Text(
-              "Giảm " + product['discount'].toString() + "%",
+              'Giảm ' +
+                  (100 - (product['price'] * 100 ~/ product['oldprice']))
+                      .toString() +
+                  '%',
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -308,47 +309,48 @@ class page_detail extends StatelessWidget {
                 width: 100,
               ),
             ),
-            Spacer(),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Bonus",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      SizedBox(height: 15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('\$' + product['price'].toString(),
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold)),
-                          SizedBox(width: 15),
-                          Text(
-                            'OldPrice',
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 15),
-                      Text(
-                        "*Áp dụng đến hết ngày 11/12/2023",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      SizedBox(height: 15),
-                    ],
-                  )),
+            SizedBox(width: 15),
+            //Spacer(),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Bonus",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'NewPrice',
+                            ),
+                            SizedBox(width: 15),
+                            Text(
+                              'OldPrice',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                        Text(
+                          "*Áp dụng đến hết ngày 11/12/2023",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 15),
+                      ],
+                    )),
+              ),
             ),
           ]),
         ],
@@ -389,36 +391,38 @@ class page_detail extends StatelessWidget {
               )
             ],
           ),
-          Spacer(),
-          Column(children: [
-            ElevatedButton(
-                //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-                child: Text(
-                  "Xem gian hàng",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )),
-            SizedBox(height: 10),
-            ElevatedButton(
-                //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                ),
-                child: Text(
-                  "Xem thông tin",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ))
-          ])
+          // Spacer(),
+          Expanded(
+            child: Column(children: [
+              ElevatedButton(
+                  //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  child: Text(
+                    "Xem gian hàng",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  )),
+              SizedBox(height: 10),
+              ElevatedButton(
+                  //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  child: Text(
+                    "Xem thông tin",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ))
+            ]),
+          )
         ],
       ),
     );
@@ -484,9 +488,11 @@ class page_detail extends StatelessWidget {
             Row(
               children: [
                 p_rating(),
-                SizedBox(width: 15),
-                Text('Đã bán: 1'),
-                SizedBox(width: 15),
+                SizedBox(width: 5),
+                Text(product['rating'].toString()),
+                SizedBox(width: 10),
+                Text('Đã bán: ' + product['sold'].toString()),
+                SizedBox(width: 10),
                 Text('Đã bình luận: 1')
               ],
             ),
@@ -589,8 +595,8 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 120, 207, 247)),
+              backgroundColor:
+                  MaterialStateProperty.all(Color.fromARGB(255, 111, 205, 249)),
             ),
             child: Center(
               child: Icon(
@@ -604,7 +610,7 @@ class page_detail extends StatelessWidget {
             onPressed: () => {},
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 69, 166, 245)),
+                  const Color.fromARGB(255, 83, 173, 247)),
             ),
             child: Center(
               child: Icon(
@@ -617,8 +623,7 @@ class page_detail extends StatelessWidget {
           ElevatedButton(
             onPressed: () => {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 21, 146, 249)),
+              backgroundColor: MaterialStateProperty.all(Colors.blue),
             ),
             child: Center(
               child: Text("Mua ngay",

@@ -4,56 +4,60 @@
     "description": "The iPhone 12 is a powerful and feature-packed smartphone that is designed to impress. iPhone 12 and iPhone 12 mini deliver an advanced 5G experience on a global scale, engineered with a seamless integration of world-class hardware and world-class software. 5G on iPhone boasts improved speeds for faster downloads and uploads, higher quality video streaming, more responsive gaming, real-time interactivity in apps, FaceTime in high definition, and more. Customers will also be able to enjoy a secure, fast connection, reducing the need to connect to public Wi-Fi hotspots. Featuring the most 5G bands on any smartphone, iPhone 12 models offer the broadest 5G coverage worldwide.2 Models in the US support millimeter wave, the higher frequency version of 5G, allowing iPhone 12 to reach speeds up to 4Gbps, even in densely populated areas. iPhone 12 models also feature Smart Data mode, which extends battery life by intelligently assessing 5G needs and balancing data usage, speed, and power in real time. Generations ahead of the competition, A14 Bionic is the first chip in the smartphone industry built on 5-nanometer process. Faster and more efficient than ever, A14 Bionic has the fastest CPU and GPU by up to 50 percent compared to the fastest competing smartphone chips, enabling console-quality gaming experiences, powerful computational photography, and more, while delivering great battery life. Pushing the limits of machine learning (ML), A14 Bionic features a 16-core Neural Engine — for an 80 percent increase in performance — that is capable of completing 11 trillion operations per second, enabling improved performance on even the most intense ML models.",
     "image": "https://genk.mediacdn.vn/139269124445442048/2021/4/21/photo-1-16189398046231706741295.jpg",
     "price": 999,
+    "oldprice": 1399,
     "comment": "Sản phẩm dùng tốt, mượt",
     "company": "Apple Inc.",
     "companyimage" : "https://cdnimg.vietnamplus.vn/uploaded/izdss/2022_02_09/apple_fintech.jpg",
     "rating": 4.5,
-    "discount": 12
+    "sold": 10
   },
   {
     "name": "Samsung Galaxy S21",
     "description": "The Samsung Galaxy S21 is a high-end smartphone that features a stunning display and advanced camera technology. Galaxy S21 Ultra’s powerful high-resolution camera can crop clearer images with the new 108MP sensor. Using Advanced Remosaic processing, the new 108MP sensor of the Galaxy S21 Ultra provides images with more clarity and higher colour fidelity. Capture every detail, both seen and unseen, with incredibly sharp 64MP photos on the Galaxy S21 series. Also, Quick Crop allows easy yet uncompromising cropping of high-resolution photos without losing any detail. The new Dual zoom lens system is faster and sharper than any zoom before. The Dual telephoto lens of the Galaxy S21 Ultra performs lens switching at designated zoom ranges (3x and 10x) and has a hyper detailed new 100x zoom. The Zoom lock function provides supports for helping control high magnification zoom as well. In the Galaxy S21 Series, AI low light shots can light up the night and capture it in vivid colour with automatic multi-frame processing in extremely low light conditions. Advanced ‘Night’ mode also improves detail and reduces noise with an AI Image Signal Processor (ISP). ",
     "image": "https://product.hstatic.net/1000370129/product/phantom-white_832b2fed914b4b44acda4eaf26f8ee60_grande.jpg",
     "price": 899,
+    "oldprice": 1299,
     "comment": "Camera chụp hình đẹp",
     "company": "Samsung Electronics Co., Ltd",
     "companyimage" : "https://danviet.mediacdn.vn/296231569849192448/2023/1/31/7-1675135082139581950593.jpg",
-    "rating": 3,
-    "discount": 5
-
+    "rating": 4,
+    "sold": 7
   },
   {
     "name": "Google Pixel 5",
     "description": "The Google Pixel 5 is a premium smartphone that offers fast performance and a top-of-the-line camera system. With the Pixel 5, Google has brought back the rear-mounted fingerprint scanner, which is a nice case of foresight on Google’s part considering the ongoing pandemic. The bottom of the phone houses a USB-C port and speakers. The right side sports the volume rocker and a chrome power button. These buttons take a bit of force to press and are fairly clicky, but I noticed they don’t feel quite as clicky as the Pixel 4a’s. Overall, the Google Pixel 5 doesn’t feel quite as premium as the Pixel 4 before it, but it nails all the design choices that bring a good experience to a phone. While Google undoubtedly went more simplistic with the Pixel 5, I don’t think it needs to be fancy in its designs. Pixels are portals to the quintessential Google experience, and that’s all they really need to be. Possibly one of the most controversial decisions Google made with this iteration was not using 2020’s flagship processor from Qualcomm, the Snapdragon 865. Instead, it opted for the tuned-down Snapdragon 765G, which keeps several core features like 5G but cuts down on throughput to the camera as well as core processing speeds.",
     "image": "https://cdn.tgdd.vn/Products/Images/42/198422/google-pixel-5-600jpg-600x600.jpg",
     "price": 699,
+    "oldprice": 999,
     "comment": "Máy mạnh, chạy nhanh",
     "company": "Google LLC",
     "companyimage": "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/2VNOUUKUYZJKRAPPUE7JSWMOQ4.jpg",
     "rating": 4,
-    "discount": 11
-
+    "sold": 9
   },
   {
     "name": "Vsmart Aris Pro",
     "description": "Aris Pro has a premium and solid monolithic design. The machine's bezel and front and back glass form a seamless whole with few contiguous points. I like the blue color on Aris Pro, it's not too bright and vibrant, combined with the frosted glass back is even more beautiful. Prominent on the back is a cluster of 4 64MP cameras with AI, the device retains the 3.5mm port and fingerprint sensor on the power button, instead of on the screen like the Live I'm using. The screen with the camera placed below is what we are most interested in on the Aris Pro. This screen is 64 with Full HD + for good quality. Right at the top center, you will see a square and hollow part compared to the rest of the screen, that is the front camera position. With the Oppo prototype I used to have on hand, it was less pitted, although it is easy to see with the naked eye. If the screen brightness is higher, we will see the most obvious difference, while if the brightness is low and Vsmart knows this, they add a black border option for the status bar in the settings to help hide this camera deeper (if you leave the status bar black, it will be black). not found).",
     "image": "https://cdn.tgdd.vn/Products/Images/42/228531/vsmart-aris-pro-green-600jpg-600x600.jpg",
     "price": 599,
+    "oldprice": 899,
     "comment": "Máy đẹp, camera ẩn dưới màn hình",
     "company": "Vin Smart",
     "companyimage": "https://cdn.tgdd.vn/hoi-dap/1304027/dien-thoai-thong-minh-vsmart-cua-nuoc-nao-san-xuat-dung-co1.jpg",
     "rating": 3.5,
-    "discount": 6
+    "sold": 5
   },
   {
     "name": "Xiaomi 13",
     "description": "The Xiaomi 13 has been introduced in four different storage configurations in its home country China: 8/128, 8/256, 12/256, and 12/512 GB. As expected, the global model does not have that many choices, arriving in only one 8/256 GB model. In terms of colors, Xiaomi gives international customers a choice between black, white, and Flora Green shades, of which the latter is what our review unit came in. The Xiaomi 13 offers a good balance between specs at an acceptable price. Although you always have to keep an eye on the handset considering how slippery it is, the 6.36-inch AMOLED display (120 Hz/1,900 nits peak brightness), 50 MP Leica triple camera, as well as the 4,500 mAh battery, and the Snapdragon 8 Gen 2 all make an extremely convincing impression. However, I would like to point out the strange behavior of Qualcomm's octa-core processor at this point as I dive into it deeper in the Performance segment. What is worse is the fact that the Xiaomi 13 comes off on the back like an eel. In other words, despite the clearly protruding, square (with rounded corners) camera array, the IP68-certified Android smartphone slides all too easily on any kind of inclined surface. In front, 2,400 x 1,080 pixels are spread over 6.36 inches, offering us a high-contrast and crisp AMOLED display. Although Xiaomi has dispensed with the energy-saving LTPO feature on the base model, unlike the Xiaomi 13 Pro (which switches between 1 to 120 Hz), at the end of the day you can rely on Samsung's E6 panel.",
     "image": "https://cdn.dxomark.com/wp-content/uploads/medias/post-139298/Xiaomi-13-featured-image-packshot-review-Recovered.jpg",
     "price": 799,
+    "oldprice": 1099,
     "comment": "Thiết kế nhỏ gọn tiện dụng",
     "company": "Xiaomi",
     "companyimage": "https://bachlongmobile.com/bnews/wp-content/uploads/2021/05/Xiaomi-3.jpg",
-    "rating": 3.5,
-    "discount": 7
+    "rating": 4.5,
+    "sold": 6
   }
 ]
+  
