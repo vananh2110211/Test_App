@@ -172,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return ListView(
       children: <Widget>[
         Container(
-          height: 500,
+          height: 200,
           child: Column(
             children: <Widget>[
               CarouselSlider(
