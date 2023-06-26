@@ -218,9 +218,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   SizedBox View() {
     return SizedBox(
-      height: 600,
+      height: 900,
       child: GridView.builder(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(5),
           physics: BouncingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -238,6 +238,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             product: filteredProducts[index],
                           ))),
               child: Container(
+                padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: Color.fromARGB(255, 230, 230, 230),
@@ -255,15 +256,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 5),
                     Expanded(
                       child: Text(
                         filteredProducts[index]['name'],
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
+                    SizedBox(height: 20),
                     Row(
                       children: [
                         Column(
@@ -298,6 +301,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 5),
                     Expanded(
                       child: Text(
                         filteredProducts[index]['description'],
