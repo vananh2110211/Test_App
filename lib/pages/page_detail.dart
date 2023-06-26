@@ -231,7 +231,7 @@ class page_detail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$' + product['price'],
+                        '\$' + product['price'].toString(),
                         style: TextStyle(
                             fontSize: 22,
                             color: Colors.blue,
@@ -239,7 +239,7 @@ class page_detail extends StatelessWidget {
                       ),
                       SizedBox(width: 15),
                       Text(
-                        '\$' + product['oldprice'],
+                        '\$' + product['oldprice'].toString(),
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w400,
@@ -266,8 +266,10 @@ class page_detail extends StatelessWidget {
                   Row(
                     children: [
                       p_rating(),
+                      SizedBox(width: 5),
+                      Text(product['rating'].toString()),
                       SizedBox(width: 15),
-                      Text('Đã bán: 1')
+                      Text('Đã bán: ' + product['sold'].toString())
                     ],
                   ),
                   SizedBox(height: 15),
@@ -278,7 +280,7 @@ class page_detail extends StatelessWidget {
         Container(
             color: Colors.white,
             child: Text(
-              'Giảm' + product['saleoff'],
+              'Giảm ' + (100 - (product['price']*100 ~/ product['oldprice'])).toString() + '%',
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -489,9 +491,11 @@ class page_detail extends StatelessWidget {
             Row(
               children: [
                 p_rating(),
-                SizedBox(width: 15),
-                Text('Đã bán: 1'),
-                SizedBox(width: 15),
+                SizedBox(width: 5),
+                Text(product['rating'].toString()),
+                SizedBox(width: 10),
+                Text('Đã bán: ' + product['sold'].toString()),
+                SizedBox(width: 10),
                 Text('Đã bình luận: 1')
               ],
             ),

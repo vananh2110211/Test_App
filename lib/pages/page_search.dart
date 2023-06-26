@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './page_home.dart';
 
 class page_search extends StatelessWidget {
   const page_search({super.key});
@@ -18,7 +19,7 @@ class page_search extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 TextField(
-                  //onChanged: (value) => filterProducts(value),
+                  //onChanged: (value) => product(value),
                   decoration: InputDecoration(
                     hintText: 'Search products',
                   ),

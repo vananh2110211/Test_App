@@ -69,43 +69,45 @@ class _MyHomePageState extends State<MyHomePage> {
       headerWidget: headerWidget(context),
       headerBottomBar: headerBottomBarWidget(),
       body: [
-        SalomonBottomBar(
-          // currentIndex: _currentIndex,
-          // onTap: (i) => setState(() => _currentIndex = i),
-          items: [
-            /// Home
-            SalomonBottomBarItem(
-              icon: Icon(Icons.auto_awesome_motion_outlined),
-              title: Text("Products"),
-              selectedColor: Colors.blueAccent,
-            ),
-
-            /// Likes
-            SalomonBottomBarItem(
-              icon: Icon(Icons.favorite_border),
-              title: Text("Likes"),
-              selectedColor: Colors.pink,
-            ),
-            SalomonBottomBarItem(
-              icon: Icon(Icons.history),
-              title: Text("History"),
-              selectedColor: Colors.yellow,
-            ),
-
-            /// Cart
-            SalomonBottomBarItem(
-              icon: Icon(Icons.shopping_cart),
-              title: Text("Cart"),
-              selectedColor: Colors.orange,
-            ),
-
-            /// Profile
-            SalomonBottomBarItem(
-              icon: Icon(Icons.filter_alt_outlined),
-              title: Text("Sort"),
-              selectedColor: Colors.teal,
-            ),
-          ],
+        Container(
+          child: SalomonBottomBar(
+            // currentIndex: _currentIndex,
+            // onTap: (i) => setState(() => _currentIndex = i),
+            items: [
+              /// Home
+              SalomonBottomBarItem(
+                icon: Icon(Icons.auto_awesome_motion_outlined),
+                title: Text("Products"),
+                selectedColor: Colors.blueAccent,
+              ),
+        
+              /// Likes
+              SalomonBottomBarItem(
+                icon: Icon(Icons.favorite_border),
+                title: Text("Likes"),
+                selectedColor: Colors.pink,
+              ),
+              SalomonBottomBarItem(
+                icon: Icon(Icons.history),
+                title: Text("History"),
+                selectedColor: Colors.yellow,
+              ),
+        
+              /// Cart
+              SalomonBottomBarItem(
+                icon: Icon(Icons.shopping_cart),
+                title: Text("Cart"),
+                selectedColor: Colors.orange,
+              ),
+        
+              /// Profile
+              SalomonBottomBarItem(
+                icon: Icon(Icons.filter_alt_outlined),
+                title: Text("Sort"),
+                selectedColor: Colors.teal,
+              ),
+            ],
+          ),
         ),
         Text("Products",
             style: TextStyle(
@@ -113,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 42,
               color: Colors.black87,
             )),
-        View(),
+        SizedBoxView(context),
       ],
       fullyStretchable: true,
       //expandedBody: const CameraPreview(),
@@ -151,6 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget headerWidget(BuildContext context) {
+    double x = MediaQuery.of(context).size.width;
     return Container(
       color: Color.fromARGB(164, 0, 140, 255),
       child: Center(
@@ -158,6 +161,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+  /*Widget x(BuildContext context) {
+    double x = MediaQuery.of(context).size.width;
+    return Container (
+      child: 
+    );  
+  }*/
 
   ListView Slideshow() {
     return ListView(
@@ -166,14 +175,6 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 500,
           child: Column(
             children: <Widget>[
-              // TextField(
-              //   //onChanged: (value) => filterProducts(value),
-              //   decoration: InputDecoration(
-              //     border: OutlineInputBorder(),
-              //     icon: Icons.search,
-              //     hintText: 'Search products',
-              //   ),
-              // ),
               CarouselSlider(
                 items: [
                   Container(
@@ -216,14 +217,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  SizedBox View() {
+  //SizedBox View() {
+  Widget SizedBoxView(BuildContext context) {
+    var x = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 900,
+      height: 1000,
       child: GridView.builder(
           padding: EdgeInsets.all(5),
           physics: BouncingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: x ~/ 150,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
             childAspectRatio: 1 / 1.2,
@@ -238,6 +241,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             product: filteredProducts[index],
                           ))),
               child: Container(
+                height: 300,
+                width: 150,
                 padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -252,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: EdgeInsets.symmetric(horizontal: 40.0),
                         child: Image.network(
                           filteredProducts[index]['image'],
-                          height: 64,
+                          height: 60,
                         ),
                       ),
                     ),
@@ -261,24 +266,55 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text(
                         filteredProducts[index]['name'],
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text(filteredProducts[index]['rating'].toString(),
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black,
+                                )
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.yellow,
+                              ),
+                            ]
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          ('Đã bán: ' + filteredProducts[index]['sold'].toString()),
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                          )
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5),
                     Row(
                       children: [
                         Column(
                           children: [
-                            Text('\$' + filteredProducts[index]['price'],
+                            Text('\$' + filteredProducts[index]['price'].toString(),
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.red,
                               )
                             ),
-                            Text('\$' + filteredProducts[index]['oldprice'],
+                            Text('\$' + filteredProducts[index]['oldprice'].toString(),
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
@@ -292,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           color: Colors.white,
                           child: Text(
-                            'Giảm' + filteredProducts[index]['saleoff'],
+                            'Giảm ' + (100 - (filteredProducts[index]['price']*100 ~/ filteredProducts[index]['oldprice'])).toString() + '%',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -307,14 +343,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         filteredProducts[index]['description'],
                         style: TextStyle(
                           fontSize: 13,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w400,
                           color: Colors.black,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines:3,
+                        maxLines:2,
                       ),
                     ),
-                    //Expanded(child: Text(filteredProducts[index]['description'])),
                   ],
                 ),
               ),
