@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import './page_home.dart';
+import 'page_home.dart';
 
 class page_search extends StatelessWidget {
-  const page_search({super.key});
+  final dynamic product;
+  const page_search({Key? key, this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class page_search extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 TextField(
-                  //onChanged: (value) => product(value),
+                 // onChanged: (value) => product(value),
                   decoration: InputDecoration(
                     hintText: 'Search products',
                   ),

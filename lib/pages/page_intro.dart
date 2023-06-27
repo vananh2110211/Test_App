@@ -11,21 +11,7 @@ class page_intro extends StatelessWidget {
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
         backgroundColor: Colors.white,
-        actions:<Widget> [
-          const SizedBox(width: 5),
-          ElevatedButton(
-            onPressed: () { },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black,
-            ),
-            child: const Row (
-              children: [
-                Icon(Icons.chevron_left),
-                Text('Quay lại', style: TextStyle(fontSize: 16))
-              ]
-            ),
-          ),
+        actions:<Widget> [ 
           Spacer(),
           Flexible(
             child: Image.network(

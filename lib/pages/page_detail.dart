@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:test_application_1/library/salomon_bottom_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
-//import "page_home.dart";
+import "page_home.dart";
 
 class page_detail extends StatelessWidget {
   final dynamic product;
@@ -15,12 +15,6 @@ class page_detail extends StatelessWidget {
         title: Text(product['name']),
         backgroundColor: Colors.white,
         actions: <Widget>[
-          // IconButton(
-          //   icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.black),
-          //   onPressed: () {
-          //     Navigator.pop(context);
-          //   },
-          // ),
           Spacer(),
           IconButton(
             icon: Icon(Icons.shopping_cart, size: 20, color: Colors.black),
@@ -70,7 +64,8 @@ class page_detail extends StatelessWidget {
               ),
               PopupMenuItem(
                 value: 2,
-                onTap: () {},
+                onTap: () {
+                },
                 child: Container(
                   child: Row(
                     children: [
@@ -124,6 +119,8 @@ class page_detail extends StatelessWidget {
           p_seller(),
           p_description(),
           p_review(),
+          p_more(),
+          //SizedBoxView(),
         ],
       ),
       bottomNavigationBar: p_bottombar(),
@@ -393,7 +390,9 @@ class page_detail extends StatelessWidget {
           ),
           // Spacer(),
           Expanded(
-            child: Column(children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
               ElevatedButton(
                   //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
                   onPressed: () {},
@@ -430,7 +429,7 @@ class page_detail extends StatelessWidget {
 
   Container p_description() {
     return Container(
-        padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+        padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
         margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 230, 236, 238),
@@ -577,7 +576,7 @@ class page_detail extends StatelessWidget {
 
   Container p_bottombar() {
     return Container(
-      height: 50,
+      height: 40,
       margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
       decoration: BoxDecoration(
           color: Color.fromARGB(255, 238, 238, 238),
@@ -602,7 +601,7 @@ class page_detail extends StatelessWidget {
               child: Icon(
                 Icons.share,
                 color: Colors.black,
-                size: 32,
+                size: 26,
               ),
             ),
           ),
@@ -616,7 +615,7 @@ class page_detail extends StatelessWidget {
               child: Icon(
                 Icons.add_shopping_cart,
                 color: Colors.black,
-                size: 32,
+                size: 26,
               ),
             ),
           ),
@@ -628,7 +627,7 @@ class page_detail extends StatelessWidget {
             child: Center(
               child: Text("Mua ngay",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.white)),
             ),
@@ -652,4 +651,30 @@ class page_detail extends StatelessWidget {
       ),
     );
   }
+
+  Container p_more(){
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
+      decoration: BoxDecoration(
+          color: Color.fromARGB(255, 238, 238, 238),
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+            )
+          ]),
+      child: Column(
+        children: [
+          Text(
+            "Sản phẩm có thể bạn cũng thích",
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),    
+          ),
+        ],)
+      );
+      }
 }
