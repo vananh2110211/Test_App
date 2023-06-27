@@ -1,12 +1,17 @@
+import 'dart:ffi';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 //import 'package:test_application_1/library/salomon_bottom_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
-//import "page_home.dart";
 
 class page_detail extends StatelessWidget {
   final dynamic product;
-  const page_detail({Key? key, required this.product}) : super(key: key);
+  final List<dynamic> relatedProducts;
+  const page_detail(
+      {Key? key, required this.product, required this.relatedProducts})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +129,48 @@ class page_detail extends StatelessWidget {
           p_seller(),
           p_description(),
           p_review(),
+          Column(children: [
+            Text(
+              'Related Products',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            GridView.count(
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: relatedProducts.map((e) {
+                return Container(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => page_detail(
+                                    product: e,
+                                    relatedProducts: relatedProducts,
+                                  )));
+                    },
+                    child: Card(
+                        child: Column(children: [
+                      SizedBox(height: 10),
+                      Image.network(
+                        e['image'],
+                        height: 64,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(height: 20),
+                      Text(e['name'], style: TextStyle(fontSize: 22)),
+                      Text('\$' + e['price'].toString(),
+                          style: TextStyle(fontSize: 22, color: Colors.red)),
+                    ])),
+                  ),
+                );
+              }).toList(),
+            )
+          ])
         ],
       ),
       bottomNavigationBar: p_bottombar(),
@@ -330,13 +377,19 @@ class page_detail extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'NewPrice',
-                            ),
-                            SizedBox(width: 15),
-                            Text(
-                              'OldPrice',
-                            ),
+                            Text('Price',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            SizedBox(width: 1),
+                            Text('Oldprice',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                )),
                           ],
                         ),
                         SizedBox(height: 15),
@@ -649,6 +702,29 @@ class page_detail extends StatelessWidget {
         itemCount: 5,
         itemSize: 20.0,
         direction: Axis.horizontal,
+      ),
+    );
+  }
+}
+
+class RelatedProduct extends StatelessWidget {
+  final dynamic product;
+  const RelatedProduct({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Navigate to detail page for this product
+      },
+      child: Card(
+        child: Column(
+          children: [
+            Image.network(product['image']),
+            Text(product['name']),
+            Text('\$${product['price']}', style: TextStyle(fontSize: 15)),
+          ],
+        ),
       ),
     );
   }
