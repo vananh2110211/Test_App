@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             items: [
               /// Home
               SalomonBottomBarItem(
-                icon: Icon(Icons.list),
+                icon: Icon(Icons.auto_awesome_motion_outlined),
                 title: Text("Products"),
                 selectedColor: Colors.blueAccent,
               ),
@@ -227,9 +227,9 @@ class _MyHomePageState extends State<MyHomePage> {
           physics: BouncingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: x ~/ 150,
-            mainAxisSpacing: 5,
-            crossAxisSpacing: 5,
-            childAspectRatio: 1 / 1.5,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 1 / 1.2,
           ),
           itemCount: filteredProducts.length,
           itemBuilder: (BuildContext context, int index) {
@@ -242,7 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             relatedProducts: products,
                           ))),
               child: Container(
-                height: 400,
+                height: 300,
                 width: 150,
                 padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
@@ -255,10 +255,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 0.0),
+                        padding: EdgeInsets.symmetric(horizontal: 40.0),
                         child: Image.network(
                           filteredProducts[index]['image'],
-                          //height: 90,
+                          height: 60,
                         ),
                       ),
                     ),
@@ -267,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text(
                         filteredProducts[index]['name'],
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

@@ -1,11 +1,10 @@
-import 'dart:ffi';
-import 'dart:io';
-
+//import 'dart:ffi';
+//import 'dart:io';
+import 'page_home.dart';
 import 'package:flutter/material.dart';
 //import 'package:test_application_1/library/salomon_bottom_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
-//import "page_home.dart";
 
 class page_detail extends StatelessWidget {
   final dynamic product;
@@ -16,6 +15,7 @@ class page_detail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var x = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(product['name']),
@@ -50,7 +50,10 @@ class page_detail extends StatelessWidget {
               PopupMenuItem(
                 value: 2,
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamed(
+                  context,
+                  '/home',
+                );
                 },
                 child: Container(
                   child: Row(
@@ -70,8 +73,7 @@ class page_detail extends StatelessWidget {
               ),
               PopupMenuItem(
                 value: 2,
-                onTap: () {
-                },
+                onTap: () {},
                 child: Container(
                   child: Row(
                     children: [
@@ -125,6 +127,61 @@ class page_detail extends StatelessWidget {
           p_seller(),
           p_description(),
           p_review(),
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 230, 236, 238),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            child: Column(children: [
+              Text(
+                'Sản phẩm có thể bạn cũng thích',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              GridView.count(
+                crossAxisCount: x ~/ 150,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                childAspectRatio: 1 / 1.2,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: relatedProducts.map((e) {
+                  return Container(
+                    height: 300,
+                    width: 150,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => page_detail(
+                                      product: e,
+                                      relatedProducts: relatedProducts,
+                                    )));
+                      },
+                      child: Card(
+                          child: Column(children: [
+                        SizedBox(height: 10),
+                        Image.network(
+                          e['image'],
+                          height: 64,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(height: 20),
+                        Text(e['name'], style: TextStyle(fontSize: 22)),
+                        Text('\$' + e['price'].toString(),
+                            style: TextStyle(fontSize: 22, color: Colors.red)),
+                      ])),
+                    ),
+                  );
+                }).toList(),
+              )
+            ]),
+          )
         ],
       ),
       bottomNavigationBar: p_bottombar(),
@@ -400,9 +457,7 @@ class page_detail extends StatelessWidget {
           ),
           // Spacer(),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+            child: Column(children: [
               ElevatedButton(
                   //style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
                   onPressed: () {},
@@ -439,7 +494,7 @@ class page_detail extends StatelessWidget {
 
   Container p_description() {
     return Container(
-        padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+        padding: EdgeInsets.only(left: 15, right: 15, top: 10),
         margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 230, 236, 238),
@@ -611,7 +666,7 @@ class page_detail extends StatelessWidget {
               child: Icon(
                 Icons.share,
                 color: Colors.black,
-                size: 26,
+                size: 28,
               ),
             ),
           ),
@@ -625,7 +680,7 @@ class page_detail extends StatelessWidget {
               child: Icon(
                 Icons.add_shopping_cart,
                 color: Colors.black,
-                size: 26,
+                size: 28,
               ),
             ),
           ),
@@ -661,30 +716,27 @@ class page_detail extends StatelessWidget {
       ),
     );
   }
+}
 
-  Container p_more(){
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 5),
-      decoration: BoxDecoration(
-          color: Color.fromARGB(255, 238, 238, 238),
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-            )
-          ]),
-      child: Column(
-        children: [
-          Text(
-            "Sản phẩm có thể bạn cũng thích",
-            style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),    
-          ),
-        ],)
-      );
-      }
+class RelatedProduct extends StatelessWidget {
+  final dynamic product;
+  const RelatedProduct({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Navigate to detail page for this product
+      },
+      child: Card(
+        child: Column(
+          children: [
+            Image.network(product['image']),
+            Text(product['name']),
+            Text('\$${product['price']}', style: TextStyle(fontSize: 15)),
+          ],
+        ),
+      ),
+    );
+  }
 }

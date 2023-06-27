@@ -8,51 +8,50 @@ class page_intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        actions:<Widget> [
-          const SizedBox(width: 5),
-          ElevatedButton(
-            onPressed: () { },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black,
+        backgroundColor: Colors.grey[50],
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          actions: <Widget>[
+            const SizedBox(width: 5),
+            // ElevatedButton(
+            //   onPressed: () { },
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.white,
+            //     foregroundColor: Colors.black,
+            //   ),
+            //   child: const Row (
+            //     children: [
+            //       Icon(Icons.chevron_left),
+            //       Text('Quay lại', style: TextStyle(fontSize: 16))
+            //     ]
+            //   ),
+            // ),
+            Spacer(),
+            Flexible(
+              child: Image.network(
+                'https://bka.hcmut.edu.vn/assets/images/logo/logo-bka.png',
+                fit: BoxFit.contain,
+              ),
             ),
-            child: const Row (
-              children: [
-                Icon(Icons.chevron_left),
-                Text('Quay lại', style: TextStyle(fontSize: 16))
-              ]
+            const SizedBox(width: 5),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MyHomePage();
+                    },
+                  ),
+                );
+              },
+              icon: const Icon(Icons.house_outlined,
+                  size: 30, color: Colors.black),
             ),
-          ),
-          Spacer(),
-          Flexible(
-            child: Image.network(
-              'https://bka.hcmut.edu.vn/assets/images/logo/logo-bka.png',
-              fit: BoxFit.contain,
-            ),
-          ),
-          const SizedBox(width: 5),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return MyHomePage();
-                  },
-                ),
-              );
-            }, 
-            icon: const Icon(Icons.house_outlined, size: 30, color: Colors.black),
-          ),
-          const SizedBox(width: 5),        
-        ],
-
-      ),
-      body: ListView(
-        children: <Widget>[
+            const SizedBox(width: 5),
+          ],
+        ),
+        body: ListView(children: <Widget>[
           Container(
             margin: EdgeInsets.symmetric(horizontal: 15),
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -76,7 +75,7 @@ class page_intro extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) {
+                  builder: (_) {
                     return MyHomePage();
                   },
                 ),
