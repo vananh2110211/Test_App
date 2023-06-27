@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
               /// Likes
               SalomonBottomBarItem(
                 icon: Icon(Icons.favorite_border),
-                title: Text("Likes"),
+                title: Text("Favorite"),
                 selectedColor: Colors.pink,
               ),
               SalomonBottomBarItem(
@@ -239,6 +239,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(
                       builder: (context) => page_detail(
                             product: filteredProducts[index],
+                            relatedProducts: products,
                           ))),
               child: Container(
                 height: 400,

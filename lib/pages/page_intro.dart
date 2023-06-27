@@ -11,7 +11,21 @@ class page_intro extends StatelessWidget {
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
         backgroundColor: Colors.white,
-        actions:<Widget> [ 
+        actions:<Widget> [
+          const SizedBox(width: 5),
+          ElevatedButton(
+            onPressed: () { },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+            ),
+            child: const Row (
+              children: [
+                Icon(Icons.chevron_left),
+                Text('Quay lại', style: TextStyle(fontSize: 16))
+              ]
+            ),
+          ),
           Spacer(),
           Flexible(
             child: Image.network(
@@ -48,18 +62,17 @@ class page_intro extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: TextField(
-              decoration: InputDecoration(
-                filled: false,
-                fillColor: Colors.white,
-                hoverColor: Colors.grey,
-                hintText: 'Tìm kiếm đặc quyền',
-                prefixIcon: const Icon(Icons.search),
-                )
-            ),
+                decoration: InputDecoration(
+              filled: false,
+              fillColor: Colors.white,
+              hoverColor: Colors.grey,
+              hintText: 'Tìm kiếm đặc quyền',
+              prefixIcon: const Icon(Icons.search),
+            )),
           ),
           SizedBox(height: 20),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -69,29 +82,26 @@ class page_intro extends StatelessWidget {
                 ),
               );
             },
-            child: Container(    
-              child: Column(
-                children: [
-                  Container(
-                    color: Colors.white,
-                    child: Row(
-                      children: [
-                        Text(
-                          'Sản phẩm và dịch vụ đặc quyền',
+            child: Container(
+              child: Column(children: [
+                Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Text('Sản phẩm và dịch vụ đặc quyền',
                           style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,)
-                        ),
-                        Spacer(),
-                        SizedBox(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          )),
+                      Spacer(),
+                      SizedBox(
                           width: 20,
-                          child: Icon(Icons.arrow_forward_ios, size: 20)
-                        ),
-                      ],
-                    ),
+                          child: Icon(Icons.arrow_forward_ios, size: 20)),
+                    ],
                   ),
-                  CarouselSlider(
+                ),
+                CarouselSlider(
                     items: [
                       Container(
                         margin: EdgeInsets.all(5),
@@ -124,36 +134,31 @@ class page_intro extends StatelessWidget {
                       enableInfiniteScroll: true,
                       autoPlayAnimationDuration: Duration(milliseconds: 800),
                       viewportFraction: 0.8,
-                    )
-                  ),
-              ]
+                    )),
+              ]),
             ),
-                  ),
           ),
-        SizedBox(height: 20),
-        Container(    
-            child: Column(
-              children: [
-                Container(
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Text(
-                        'Chương trình hướng dẫn nghề nghiệp',
+          SizedBox(height: 20),
+          Container(
+            child: Column(children: [
+              Container(
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Text('Chương trình hướng dẫn nghề nghiệp',
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,)
-                      ),
-                      Spacer(),
-                      SizedBox(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                    Spacer(),
+                    SizedBox(
                         width: 30,
-                        child: Icon(Icons.arrow_forward_ios, size: 20)
-                      ),
-                    ],
-                  ),
+                        child: Icon(Icons.arrow_forward_ios, size: 20)),
+                  ],
                 ),
-                CarouselSlider(
+              ),
+              CarouselSlider(
                   items: [
                     Container(
                       margin: EdgeInsets.all(5),
@@ -186,35 +191,30 @@ class page_intro extends StatelessWidget {
                     enableInfiniteScroll: true,
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     viewportFraction: 0.8,
-                  )
-                ),
-            ]
-          ),
+                  )),
+            ]),
           ),
           SizedBox(height: 20),
-          Container(    
-            child: Column(
-              children: [
-                Container(
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Text(
-                        'Chương trình huấn luyện khởi nghiệp',
+          Container(
+            child: Column(children: [
+              Container(
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Text('Chương trình huấn luyện khởi nghiệp',
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,)
-                      ),
-                      Spacer(),
-                      SizedBox(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                    Spacer(),
+                    SizedBox(
                         width: 30,
-                        child: Icon(Icons.arrow_forward_ios, size: 20)
-                      ),
-                    ],
-                  ),
+                        child: Icon(Icons.arrow_forward_ios, size: 20)),
+                  ],
                 ),
-                CarouselSlider(
+              ),
+              CarouselSlider(
                   items: [
                     Container(
                       margin: EdgeInsets.all(5),
@@ -247,35 +247,30 @@ class page_intro extends StatelessWidget {
                     enableInfiniteScroll: true,
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     viewportFraction: 0.8,
-                  )
-                ),
-            ]
-          ),
+                  )),
+            ]),
           ),
           SizedBox(height: 20),
-          Container(    
-            child: Column(
-              children: [
-                Container(
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Text(
-                        'Kêu gọi hỗ trợ nghiên cứu/ khởi nghiệp',
+          Container(
+            child: Column(children: [
+              Container(
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Text('Kêu gọi hỗ trợ nghiên cứu/ khởi nghiệp',
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,)
-                      ),
-                      Spacer(),
-                      SizedBox(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                    Spacer(),
+                    SizedBox(
                         width: 30,
-                        child: Icon(Icons.arrow_forward_ios, size: 20)
-                      ),
-                    ],
-                  ),
+                        child: Icon(Icons.arrow_forward_ios, size: 20)),
+                  ],
                 ),
-                CarouselSlider(
+              ),
+              CarouselSlider(
                   items: [
                     Container(
                       margin: EdgeInsets.all(5),
@@ -308,14 +303,9 @@ class page_intro extends StatelessWidget {
                     enableInfiniteScroll: true,
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     viewportFraction: 0.8,
-                  )
-                ),
-            ]
-          ),
+                  )),
+            ]),
           )
-        ]
-      )
-      
-    );
+        ]));
   }
 }

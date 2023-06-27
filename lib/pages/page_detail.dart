@@ -1,12 +1,18 @@
+import 'dart:ffi';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 //import 'package:test_application_1/library/salomon_bottom_bar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
-import "page_home.dart";
+//import "page_home.dart";
 
 class page_detail extends StatelessWidget {
   final dynamic product;
-  const page_detail({Key? key, required this.product}) : super(key: key);
+  final List<dynamic> relatedProducts;
+  const page_detail(
+      {Key? key, required this.product, required this.relatedProducts})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -119,8 +125,6 @@ class page_detail extends StatelessWidget {
           p_seller(),
           p_description(),
           p_review(),
-          p_more(),
-          //SizedBoxView(),
         ],
       ),
       bottomNavigationBar: p_bottombar(),
@@ -327,13 +331,19 @@ class page_detail extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'NewPrice',
-                            ),
-                            SizedBox(width: 15),
-                            Text(
-                              'OldPrice',
-                            ),
+                            Text('Price',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            SizedBox(width: 1),
+                            Text('Oldprice',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                )),
                           ],
                         ),
                         SizedBox(height: 15),
